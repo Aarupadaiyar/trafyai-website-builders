@@ -31,7 +31,7 @@ export function Philosophy() {
       className="relative overflow-hidden bg-background px-gutter py-section-lg"
     >
       {/* Continuous slow orbit + counter-rotation so node content stays upright.
-          Pure CSS (paused via :hover, frozen via prefers-reduced-motion) — scoped
+          Pure CSS (paused via :hover, frozen via prefers-reduced-motion), scoped
           to this component only, no shared stylesheet edits required. */}
       <style>{`
         @keyframes philosophy-spin { to { transform: rotate(360deg); } }

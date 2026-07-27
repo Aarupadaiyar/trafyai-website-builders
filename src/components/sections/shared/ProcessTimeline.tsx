@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { JSX } from "react";
 import { Reveal } from "@/components/Reveal";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
@@ -9,6 +9,24 @@ import { cn } from "@/lib/utils";
 type ProcessTimelineProps = { variant: "pinned" | "compact"; id?: string };
 
 const STAGE_SCROLL_VH = 62;
+
+// A full-height scroll-jacked pin doesn't translate well to small touch
+// screens, so below the `md` breakpoint we render the same static, stacked
+// list used for prefers-reduced-motion instead of pinning the section.
+function useIsSmallScreen() {
+  const [isSmall, setIsSmall] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    const onChange = () => setIsSmall(mql.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  return isSmall;
+}
 
 function getStageVisualState(delta: number) {
   const absDelta = Math.abs(delta);
@@ -36,8 +54,15 @@ export function ProcessTimeline({ variant, id }: ProcessTimelineProps): JSX.Elem
 
 function CompactProcessTimeline({ id }: { id?: string }) {
   return (
-    <section id={id} className="py-section px-gutter">
+    <section id={id} aria-labelledby="process-heading" className="py-section px-gutter">
       <div className="mx-auto max-w-6xl">
+        <Reveal className="mb-10 max-w-2xl">
+          <span className="text-caption uppercase tracking-[0.25em] text-signal">Our Process</span>
+          <h2 id="process-heading" className="mt-4 font-display text-h1 text-foreground">
+            How we get it done.
+          </h2>
+        </Reveal>
+
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-6">
           {processStages.map((stage, i) => (
             <Reveal key={stage.index} delay={i * 0.06}>
@@ -63,6 +88,8 @@ function CompactProcessTimeline({ id }: { id?: string }) {
 
 function PinnedProcessTimeline({ id }: { id?: string }) {
   const prefersReducedMotion = usePrefersReducedMotion();
+  const isSmallScreen = useIsSmallScreen();
+  const skipPin = prefersReducedMotion || isSmallScreen;
   const sectionRef = useRef<HTMLElement | null>(null);
   const [progress, setProgress] = useState(0);
 
@@ -71,7 +98,7 @@ function PinnedProcessTimeline({ id }: { id?: string }) {
 
   useScrollTrigger(
     () => {
-      if (prefersReducedMotion || !sectionRef.current) return;
+      if (skipPin || !sectionRef.current) return;
 
       const trigger = ScrollTrigger.create({
         trigger: sectionRef.current,
@@ -84,13 +111,19 @@ function PinnedProcessTimeline({ id }: { id?: string }) {
 
       return () => trigger.kill();
     },
-    { scope: sectionRef, dependencies: [prefersReducedMotion, n] }
+    { scope: sectionRef, dependencies: [skipPin, n] }
   );
 
-  if (prefersReducedMotion) {
+  if (skipPin) {
     return (
-      <section id={id} className="py-section-lg px-gutter">
+      <section id={id} aria-labelledby="process-heading" className="py-section-lg px-gutter">
         <div className="mx-auto max-w-3xl space-y-16">
+          <Reveal>
+            <span className="text-caption uppercase tracking-[0.25em] text-signal">Our Process</span>
+            <h2 id="process-heading" className="mt-4 font-display text-h1 text-foreground">
+              How we get it done.
+            </h2>
+          </Reveal>
           {processStages.map((stage, i) => (
             <Reveal key={stage.index} delay={i * 0.06}>
               <StageContent stage={stage} active />
@@ -102,7 +135,12 @@ function PinnedProcessTimeline({ id }: { id?: string }) {
   }
 
   return (
-    <section id={id} ref={sectionRef} className="relative flex min-h-screen items-center py-section-lg px-gutter">
+    <section
+      id={id}
+      ref={sectionRef}
+      aria-label="Our Process"
+      className="relative flex min-h-screen items-center py-section-lg px-gutter"
+    >
       <div className="mx-auto w-full max-w-3xl">
         {processStages.map((stage, i) => {
           const { opacity, scale, blur, isActive } = getStageVisualState(i - rawPosition);

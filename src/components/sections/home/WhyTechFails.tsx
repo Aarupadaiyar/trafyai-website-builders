@@ -26,7 +26,7 @@ export function WhyTechFails() {
                   <li key={step} className="flex items-center gap-3">
                     <span>{step}</span>
                     {i < whyTechFails.genericAgency.length - 1 && (
-                      <span className="text-background/30">&mdash;</span>
+                      <span aria-hidden="true" className="text-background/30">&rarr;</span>
                     )}
                   </li>
                 ))}

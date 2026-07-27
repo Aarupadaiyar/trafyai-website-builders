@@ -74,7 +74,7 @@ export function ROICalculator({ config }: { config: ServiceConfig }) {
             Estimate what {config.name} could save your team
           </h2>
           <p className="mt-4 text-body text-muted-foreground max-w-xl">
-            Adjust the numbers below to reflect your team. The savings update instantly — no
+            Adjust the numbers below to reflect your team. The savings update instantly, no
             assumptions about project cost, just the math on your own time and headcount.
           </p>
         </Reveal>
@@ -192,7 +192,7 @@ export function ROICalculator({ config }: { config: ServiceConfig }) {
               </div>
 
               <p className="mt-6 text-caption text-muted-foreground">
-                Based on your inputs alone — no assumed project cost or fees. We quote a fixed
+                Based on your inputs alone, no assumed project cost or fees. We quote a fixed
                 project fee after discovery, so this is purely the time and cost your team stands
                 to reclaim.
               </p>

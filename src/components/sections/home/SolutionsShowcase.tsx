@@ -5,7 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
 import { services } from "@/data/content";
 
-// Asymmetric editorial grid — a 12-col track with one large feature tile.
+// Asymmetric editorial grid, a 12-col track with one large feature tile.
 const SPANS = [
   "md:col-span-7 md:row-span-2",
   "md:col-span-5 md:row-span-1",

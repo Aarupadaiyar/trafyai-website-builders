@@ -19,7 +19,7 @@ function formatCount(raw: number) {
 /**
  * Shared primitive: animates a number from 0 to `value` once, the moment it
  * scrolls into view. One-shot viewport trigger (Framer Motion `useInView`,
- * `once: true`) — never GSAP, this has no scrubbing/pinning need.
+ * `once: true`), never GSAP, this has no scrubbing/pinning need.
  */
 export function CountUpStat({
   value,

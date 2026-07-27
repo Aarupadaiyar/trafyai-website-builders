@@ -135,8 +135,8 @@ body {
 }
 
 ::selection {
-  background: hsl(var(--foreground) / 0.85);
-  color: hsl(var(--background));
+  background: hsl(var(--signal) / 0.85);
+  color: hsl(var(--foreground));
 }
 
 .liquid-glass {

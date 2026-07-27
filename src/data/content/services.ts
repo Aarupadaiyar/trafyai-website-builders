@@ -290,7 +290,7 @@ export const services: ServiceConfig[] = [
       headline: "Built around how your business actually operates.",
       steps: [
         { title: "Process Mapping", description: "Document how work actually moves through your business today, not how it's supposed to." },
-        { title: "System Architecture", description: "Design modules around your real departments, finance, inventory, HR, operations." },
+        { title: "System Architecture", description: "Design modules around your real departments: finance, inventory, HR, operations." },
         { title: "Build & Integrate", description: "Connect to your existing tools instead of forcing a rip-and-replace." },
         { title: "Data Migration", description: "Move years of records over without breaking historical reporting." },
         { title: "Team Training", description: "Your staff can use it confidently on day one, not after a six-month ramp." },

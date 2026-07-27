@@ -16,7 +16,7 @@ export function ServiceCaseStudy({ config }: { config: ServiceConfig }) {
       <div className="mx-auto max-w-5xl">
         <Reveal>
           <span className="block text-caption uppercase tracking-[0.25em] text-accent-element">
-            Case Study &mdash; {caseStudy.industry}
+            Case Study: {caseStudy.industry}
           </span>
           <h2 id="case-study-heading" className="mt-4 font-display text-h2 text-foreground max-w-2xl">
             {caseStudy.client}

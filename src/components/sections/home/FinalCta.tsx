@@ -14,7 +14,11 @@ export function FinalCta(): JSX.Element {
   };
 
   return (
-    <section id="final-cta" className="relative overflow-hidden py-section-lg px-gutter">
+    <section
+      id="final-cta"
+      aria-labelledby="final-cta-heading"
+      className="relative overflow-hidden py-section-lg px-gutter"
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30 blur-[120px]"
@@ -36,7 +40,10 @@ export function FinalCta(): JSX.Element {
 
       <div className="relative mx-auto max-w-3xl text-center">
         <Reveal>
-          <h2 className="font-display text-display-l text-foreground">{finalCta.headline}</h2>
+          <span className="mb-4 block text-caption uppercase tracking-[0.25em] text-signal">Get Started</span>
+          <h2 id="final-cta-heading" className="font-display text-display-l text-foreground">
+            {finalCta.headline}
+          </h2>
           <p className="mx-auto mt-6 max-w-xl text-body-lg text-muted-foreground">{finalCta.body}</p>
         </Reveal>
 

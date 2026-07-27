@@ -73,7 +73,10 @@ export function RealityCheck() {
       ref={scope}
       id="reality-check"
       aria-labelledby="reality-check-heading"
-      className="relative flex min-h-screen items-center overflow-hidden bg-background py-section"
+      className={cn(
+        "relative flex items-center overflow-hidden bg-background py-section",
+        !skipPin && "min-h-screen"
+      )}
     >
       <div className="pointer-events-none absolute inset-0">
         {SHAPES.map((shape, i) => (

@@ -19,7 +19,7 @@ export default function Industries() {
             </h1>
             <p className="mt-6 text-body-lg text-muted-foreground">
               Every industry runs on its own pressures. We build systems around the ones that
-              actually shape how your business operates — not a generic template stretched to fit.
+              actually shape how your business operates, not a generic template stretched to fit.
             </p>
           </Reveal>
 

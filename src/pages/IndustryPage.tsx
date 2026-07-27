@@ -174,7 +174,7 @@ export default function IndustryPage() {
               Let's talk about {industry.name.toLowerCase()}.
             </h2>
             <p className="mt-6 text-body-lg text-muted-foreground">
-              Tell us where the friction is — we'll show you how we'd build around it.
+              Tell us where the friction is, we'll show you how we'd build around it.
             </p>
             <div className="mt-8 flex justify-center">
               <Button variant="glass" size="lg" asChild>

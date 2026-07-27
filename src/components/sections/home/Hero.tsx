@@ -35,7 +35,7 @@ export function Hero() {
               text="Trafy"
               className="block font-medium leading-[0.85] tracking-[-0.07em] text-[26vw] text-[#E1E0CC] sm:text-[24vw] md:text-[22vw] lg:text-[20vw] xl:text-[19vw] 2xl:text-[20vw]"
             />
-            <span className="sr-only"> — {hero.headline}</span>
+            <span className="sr-only">: {hero.headline}</span>
           </h1>
 
           <div className="col-span-12 flex flex-col gap-6 md:col-span-4 md:pb-[1.5vw]">
