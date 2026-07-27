@@ -34,7 +34,7 @@ export function CaseStudies(): JSX.Element {
   return (
     <section id="work" className="py-section-lg px-gutter">
       <div className="mx-auto max-w-5xl">
-        <Reveal className="mb-14 max-w-2xl">
+        <Reveal className="mb-10 max-w-2xl">
           <span className="text-caption uppercase tracking-[0.25em] text-signal">Case Studies</span>
           <h2 className="mt-4 font-display text-h1 text-foreground">
             Outcomes, not screenshots.
@@ -53,55 +53,65 @@ export function CaseStudies(): JSX.Element {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:items-center lg:gap-10"
             >
-              <span className="text-caption uppercase tracking-wide text-muted-foreground">
-                {current.industry}
-              </span>
-              <h3 className="mt-3 font-display text-h2 text-foreground">{current.client}</h3>
-              <p className="mt-4 max-w-2xl text-body-lg text-muted-foreground">{current.summary}</p>
+              <img
+                src={current.image}
+                alt={`${current.client} case study`}
+                loading="lazy"
+                className="aspect-[4/3] w-full rounded-xl object-cover lg:col-span-2"
+              />
 
-              <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {current.metrics.map((metric) => {
-                  const before = parseNumeric(metric.before);
-                  const after = parseNumeric(metric.after);
-                  return (
-                    <div key={metric.label} className="border-l border-border pl-5">
-                      <p className="text-caption uppercase tracking-wide text-muted-foreground">
-                        {metric.label}
-                      </p>
-                      {before && after ? (
-                        <div className="mt-2 flex items-baseline gap-3">
-                          <span className="font-display text-h3 text-muted-foreground opacity-60">
-                            {before.value}
-                            {before.suffix}
-                          </span>
-                          <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
-                          <CountUpStat value={after.value} suffix={after.suffix} />
-                        </div>
-                      ) : (
-                        <div className="mt-2 flex items-baseline gap-3 font-display">
-                          <span className="text-h3 text-muted-foreground opacity-60">{metric.before}</span>
-                          <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
-                          <span className="text-h1 text-signal">{metric.after}</span>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+              <div className="lg:col-span-3">
+                <span className="text-caption uppercase tracking-wide text-muted-foreground">
+                  {current.industry}
+                </span>
+                <h3 className="mt-3 font-display text-h2 text-foreground">{current.client}</h3>
+                <p className="mt-4 max-w-2xl text-body-lg text-muted-foreground">{current.summary}</p>
+
+                <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                  {current.metrics.map((metric) => {
+                    const before = parseNumeric(metric.before);
+                    const after = parseNumeric(metric.after);
+                    return (
+                      <div key={metric.label} className="border-l border-border pl-5">
+                        <p className="text-caption uppercase tracking-wide text-muted-foreground">
+                          {metric.label}
+                        </p>
+                        {before && after ? (
+                          <div className="mt-2 flex items-baseline gap-3">
+                            <span className="font-display text-h3 text-muted-foreground opacity-60">
+                              {before.value}
+                              {before.suffix}
+                            </span>
+                            <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <CountUpStat value={after.value} suffix={after.suffix} />
+                          </div>
+                        ) : (
+                          <div className="mt-2 flex items-baseline gap-3 font-display">
+                            <span className="text-h3 text-muted-foreground opacity-60">{metric.before}</span>
+                            <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <span className="text-h1 text-signal">{metric.after}</span>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <Link
+                  to={`/solutions/${current.serviceSlug}`}
+                  className="mt-8 inline-flex items-center gap-2 text-body text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-signal"
+                >
+                  View service
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
               </div>
-
-              <Link
-                to={`/solutions/${current.serviceSlug}`}
-                className="mt-10 inline-flex items-center gap-2 text-body text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-signal"
-              >
-                View service
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
             </motion.div>
           </AnimatePresence>
 
           {total > 1 && (
-            <div className="mt-14 flex items-center gap-4">
+            <div className="mt-10 flex items-center gap-4">
               <button
                 type="button"
                 aria-label="Previous case study"

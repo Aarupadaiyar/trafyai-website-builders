@@ -11,6 +11,7 @@ import { InteractiveCapabilities } from "@/components/sections/service/Interacti
 import { ServiceTechnology } from "@/components/sections/service/ServiceTechnology";
 import { ServiceCaseStudy } from "@/components/sections/service/ServiceCaseStudy";
 import { ServiceResults } from "@/components/sections/service/ServiceResults";
+import { ROICalculator } from "@/components/sections/service/ROICalculator";
 import { ServiceFinalCta } from "@/components/sections/service/ServiceFinalCta";
 import { FaqAccordion } from "@/components/sections/shared/FaqAccordion";
 import { ProcessTimeline } from "@/components/sections/shared/ProcessTimeline";
@@ -35,6 +36,7 @@ export default function ServicePage() {
         <ServiceTechnology config={config} />
         <ServiceCaseStudy config={config} />
         <ServiceResults config={config} />
+        <ROICalculator config={config} />
         <TestimonialsCarousel items={config.testimonials} />
         <FaqAccordion items={config.faq} />
         <ServiceFinalCta config={config} />

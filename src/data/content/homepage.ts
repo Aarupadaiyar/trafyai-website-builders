@@ -36,22 +36,12 @@ export const philosophy = {
   body: "Businesses aren't collections of tools. They're living systems. Every disconnected process costs money. Every unnecessary click wastes time. Every delay slows growth. Our job isn't to build software. Our job is to engineer ecosystems.",
 };
 
-export type IndustryTeaser = { name: string; description: string };
-
-export const industriesTeaser: IndustryTeaser[] = [
-  { name: "Healthcare", description: "Compliance, patient experience, and operational efficiency." },
-  { name: "Retail", description: "Conversion, customer journey, and inventory intelligence." },
-  { name: "Manufacturing", description: "Operations, automation, and reliability at scale." },
-  { name: "Finance", description: "Security, trust, and accuracy in every transaction." },
-  { name: "SaaS", description: "Retention, onboarding, and product-led growth." },
-  { name: "Real Estate", description: "Lead conversion and end-to-end client experience." },
-];
-
 export type FeaturedCaseStudy = {
   client: string;
   industry: string;
   serviceSlug: string;
   summary: string;
+  image: string;
   metrics: { label: string; before: string; after: string }[];
 };
 
@@ -61,6 +51,7 @@ export const caseStudiesFeatured: FeaturedCaseStudy[] = [
     industry: "Logistics",
     serviceSlug: "website-development",
     summary: "A 12-year-old logistics company rebuilt their entire digital presence around converting enterprise buyers.",
+    image: "https://images.unsplash.com/photo-1616432043562-3671ea2e5242?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     metrics: [
       { label: "Conversion rate", before: "0.8%", after: "3.4%" },
       { label: "Qualified leads / month", before: "12", after: "58" },
@@ -71,6 +62,7 @@ export const caseStudiesFeatured: FeaturedCaseStudy[] = [
     industry: "Manufacturing",
     serviceSlug: "erp-solutions",
     summary: "Five disconnected tools became one operational backbone, without stopping the production floor.",
+    image: "https://images.unsplash.com/photo-1554070211-e3953a3de374?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     metrics: [
       { label: "Manual hours / week", before: "26", after: "3" },
       { label: "Monthly close time", before: "9 days", after: "2 days" },
@@ -81,6 +73,7 @@ export const caseStudiesFeatured: FeaturedCaseStudy[] = [
     industry: "SaaS",
     serviceSlug: "crm-solutions",
     summary: "A 14-person sales team replaced three spreadsheets and a CRM nobody trusted with one clear pipeline.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     metrics: [
       { label: "Lead response time", before: "38 hrs", after: "4 hrs" },
       { label: "Forecast accuracy", before: "58%", after: "89%" },

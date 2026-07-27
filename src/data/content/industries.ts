@@ -3,6 +3,7 @@ export type IndustryConfig = {
   name: string;
   tagline: string;
   description: string;
+  image: string;
   challenges: string[];
   relevantServiceSlugs: string[];
   metrics: { label: string; value: string }[];
@@ -13,6 +14,7 @@ export const industries: IndustryConfig[] = [
     slug: "healthcare",
     name: "Healthcare",
     tagline: "Compliance, patient experience, and operational efficiency.",
+    image: "https://images.unsplash.com/photo-1666886573531-48d2e3c2b684?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
       "Healthcare businesses carry a higher bar than most: every system has to hold up to compliance scrutiny while still feeling human to the patient on the other end. We build for both at once — never trading one for the other.",
     challenges: [
@@ -30,6 +32,7 @@ export const industries: IndustryConfig[] = [
     slug: "retail",
     name: "Retail",
     tagline: "Conversion, customer journey, and inventory intelligence.",
+    image: "https://images.unsplash.com/photo-1743228672550-8b8f22cf0031?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
       "Retail margins are won or lost in the details — a slow checkout, an out-of-sync inventory count, a customer journey that doesn't carry across channels. We build the systems that close those gaps.",
     challenges: [
@@ -47,6 +50,7 @@ export const industries: IndustryConfig[] = [
     slug: "manufacturing",
     name: "Manufacturing",
     tagline: "Operations, automation, and reliability at scale.",
+    image: "https://images.unsplash.com/photo-1554070211-e3953a3de374?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
       "On a production floor, disconnected systems don't just cost time — they cost output. We unify finance, inventory, and operations into one operating system built around how manufacturing actually runs.",
     challenges: [
@@ -64,6 +68,7 @@ export const industries: IndustryConfig[] = [
     slug: "finance",
     name: "Finance",
     tagline: "Security, trust, and accuracy in every transaction.",
+    image: "https://images.unsplash.com/photo-1758518727707-b023e285b709?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
       "In finance, trust is the product. Every system we build here is designed around accuracy and security first — then usability, never the other way around.",
     challenges: [
@@ -81,6 +86,7 @@ export const industries: IndustryConfig[] = [
     slug: "saas",
     name: "SaaS",
     tagline: "Retention, onboarding, and product-led growth.",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
       "For a SaaS business, churn is the enemy and onboarding is the front line. We build the pipeline, retention, and growth systems that keep customers past their first thirty days.",
     challenges: [
@@ -98,6 +104,7 @@ export const industries: IndustryConfig[] = [
     slug: "real-estate",
     name: "Real Estate",
     tagline: "Lead conversion and end-to-end client experience.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
       "Real estate is a relationship business running on a deadline. We build the systems that keep every lead followed up, every listing presented well, and every client experience consistent from first click to closing.",
     challenges: [

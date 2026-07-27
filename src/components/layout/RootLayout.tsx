@@ -7,6 +7,11 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import Home from "@/pages/Home";
 import ServicePage from "@/pages/ServicePage";
+import Industries from "@/pages/Industries";
+import IndustryPage from "@/pages/IndustryPage";
+import CaseStudies from "@/pages/CaseStudies";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
 import NotFound from "@/pages/NotFound";
 
 export function RootLayout() {
@@ -40,6 +45,11 @@ export function RootLayout() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/solutions/:slug" element={<ServicePage />} />
+            <Route path="/industries" element={<Industries />} />
+            <Route path="/industries/:slug" element={<IndustryPage />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>

@@ -22,6 +22,7 @@ export type ServiceConfig = {
   name: string;
   tagline: string;
   body: string;
+  image: string;
   element: ElementTheme;
   hero: {
     eyebrow: string;
@@ -63,6 +64,7 @@ export const services: ServiceConfig[] = [
     name: "Website Development",
     tagline: "Sites built to convert, not just exist.",
     body: "Marketing sites, e-commerce, and web platforms engineered for speed, SEO, and motion-driven storytelling.",
+    image: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     element: "water",
     hero: {
       eyebrow: "Website Development",
@@ -164,6 +166,7 @@ export const services: ServiceConfig[] = [
     name: "App Development",
     tagline: "iOS, Android, and cross-platform — built to ship.",
     body: "Native-feel mobile apps and cross-platform products, from first wireframe to App Store — architected for scale.",
+    image: "https://images.unsplash.com/photo-1512428559087-560fa5ceab42?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     element: "air",
     hero: {
       eyebrow: "App Development",
@@ -256,6 +259,7 @@ export const services: ServiceConfig[] = [
     name: "ERP Solutions",
     tagline: "Every department, one source of truth.",
     body: "Custom ERP systems that unify inventory, finance, operations, and HR — replacing spreadsheets with one platform.",
+    image: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     element: "earth",
     hero: {
       eyebrow: "ERP Solutions",
@@ -348,6 +352,7 @@ export const services: ServiceConfig[] = [
     name: "CRM Solutions",
     tagline: "Every lead, every deal, tracked and worked.",
     body: "CRM platforms tailored to how your sales team actually sells — pipeline visibility, automation, and reporting.",
+    image: "https://images.unsplash.com/photo-1766066014237-00645c74e9c6?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     element: "ice",
     hero: {
       eyebrow: "CRM Solutions",
@@ -440,6 +445,7 @@ export const services: ServiceConfig[] = [
     name: "Digital Marketing",
     tagline: "Growth, measured in pipeline — not impressions.",
     body: "Performance marketing, SEO, and paid media run by a team that ships the website too, so strategy never disconnects.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     element: "fire",
     hero: {
       eyebrow: "Digital Marketing",
@@ -532,6 +538,7 @@ export const services: ServiceConfig[] = [
     name: "Social Media Management",
     tagline: "Content, community, and brand — run daily.",
     body: "Content calendars, creative production, and community management across platforms, without the in-house overhead.",
+    image: "https://images.unsplash.com/photo-1724862936518-ae7fcfc052c1?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     element: "nature",
     hero: {
       eyebrow: "Social Media Management",

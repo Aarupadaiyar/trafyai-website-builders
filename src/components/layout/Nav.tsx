@@ -52,7 +52,7 @@ export function Nav() {
             onMouseEnter={() => setSolutionsOpen(true)}
             onMouseLeave={() => setSolutionsOpen(false)}
           >
-            <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <button className="text-base text-muted-foreground hover:text-foreground transition-colors">
               Solutions
             </button>
             <AnimatePresence>
@@ -72,10 +72,10 @@ export function Nav() {
                         className="group rounded-md px-4 py-3 hover:bg-secondary transition-colors"
                       >
                         <div className="flex items-baseline gap-2">
-                          <span className="text-xs text-muted-foreground">{service.index}</span>
-                          <span className="text-sm text-foreground">{service.name}</span>
+                          <span className="text-sm text-muted-foreground">{service.index}</span>
+                          <span className="text-base text-foreground">{service.name}</span>
                         </div>
-                        <p className="mt-1 text-xs text-muted-foreground line-clamp-1">{service.tagline}</p>
+                        <p className="mt-1 text-sm text-muted-foreground line-clamp-1">{service.tagline}</p>
                       </Link>
                     ))}
                   </div>
@@ -88,7 +88,7 @@ export function Nav() {
             <Link
               key={item.label}
               to={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="text-base text-muted-foreground hover:text-foreground transition-colors"
             >
               {item.label}
             </Link>
@@ -122,7 +122,7 @@ export function Nav() {
             className="md:hidden bg-background border-t border-border overflow-hidden"
           >
             <div className="flex flex-col gap-1 px-6 py-6">
-              <span className="text-xs uppercase tracking-wider text-muted-foreground mb-1">Solutions</span>
+              <span className="text-sm uppercase tracking-wider text-muted-foreground mb-1">Solutions</span>
               {services.map((service) => (
                 <Link
                   key={service.slug}
