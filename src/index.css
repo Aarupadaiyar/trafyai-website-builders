@@ -1,316 +1,211 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700&display=swap");
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/fonts/InstrumentSerif-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Variable.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Variable.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* shadcn-style raw HSL triplets — warm white, premium editorial theme */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 4%;
+  --muted-foreground: 0 0% 40%;
+  --primary: 0 0% 4%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 95%;
+  --muted: 0 0% 95%;
+  --accent: 0 0% 93%;
+  --border: 0 0% 88%;
+  --input: 0 0% 88%;
+
+  /* Trafy brand lime — used sparingly as an accent (labels, hover glow,
+     small indicators), never as a fill. Kept under ~5% of total color
+     usage on any page; the base theme is neutral black/white. */
+  --signal: 77 96% 62%;
+  --surface: 0 0% 96%;
+
+  /* "Ink" — a near-black reserved for occasional brand-flavoured text,
+     kept neutral (no blue) to match the base theme. */
+  --ink: 0 0% 4%;
+
+  /* Elemental accents — one per service, activated per-page via [data-theme].
+     Homepage stays neutral: --accent-element falls back to --foreground. */
+  --accent-element: 0 0% 4%;
+  --el-water: 205 85% 45%;   /* Website Development */
+  --el-air: 210 15% 75%;    /* App Development */
+  --el-earth: 30 35% 48%;   /* ERP Solutions */
+  --el-ice: 195 45% 88%;    /* CRM Solutions */
+  --el-fire: 28 95% 56%;    /* Digital Marketing */
+  --el-nature: 152 50% 42%; /* Social Media Management */
+}
+
+[data-theme="water"]  { --accent-element: var(--el-water); }
+[data-theme="air"]    { --accent-element: var(--el-air); }
+[data-theme="earth"]  { --accent-element: var(--el-earth); }
+[data-theme="ice"]    { --accent-element: var(--el-ice); }
+[data-theme="fire"]   { --accent-element: var(--el-fire); }
+[data-theme="nature"] { --accent-element: var(--el-nature); }
 
 @theme {
-  --font-display: "Fraunces", "Georgia", serif;
-  --font-body: "Public Sans", system-ui, sans-serif;
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-muted: hsl(var(--muted));
+  --color-accent: hsl(var(--accent));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-signal: hsl(var(--signal));
+  --color-surface: hsl(var(--surface));
+  --color-ink: hsl(var(--ink));
+  --color-accent-element: hsl(var(--accent-element));
+  --color-accent-element-tint: hsl(var(--accent-element) / 0.12);
 
-  /* Light, trust-forward palette. Brand lime (--color-signal) is used
-     sparingly (accents, CTAs, small indicators) — never as a fill color. */
-  --color-ink: #fafaf6;
-  --color-void: #ffffff;
-  --color-panel: #f4f5ec;
-  --color-panel-2: #eef0e1;
-  --color-line: #e2e4d3;
-  --color-mist: #6d7160;
-  --color-fog: #43473a;
-  --color-paper: #14170d;
-  --color-signal: #c5fe37;
-  --color-signal-light: #d8ff6e;
-  --color-signal-dark: #94c518;
+  --font-display: "Instrument Serif", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  /* Reserved for intentionally-dark showcase surfaces (hero cards, 3D
-     panels) that punctuate the light page — not the page default. */
-  --color-dusk: #05060a;
-  --color-dusk-panel: #0e1120;
+  /* Semantic type scale */
+  --text-display-xl: clamp(3.5rem, 4rem + 3vw, 8rem);
+  --text-display-xl--line-height: 0.95;
+  --text-display-l: clamp(2.75rem, 3rem + 2vw, 5.5rem);
+  --text-display-l--line-height: 0.98;
+  --text-h1: clamp(2.25rem, 2rem + 1.5vw, 3.75rem);
+  --text-h1--line-height: 1.05;
+  --text-h2: clamp(1.75rem, 1.5rem + 1vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+  --text-h3: clamp(1.375rem, 1.25rem + 0.5vw, 1.875rem);
+  --text-h3--line-height: 1.2;
+  --text-body-lg: 1.25rem;
+  --text-body-lg--line-height: 1.6;
+  --text-body: 1rem;
+  --text-body--line-height: 1.7;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.6;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+
+  /* Spacing */
+  --spacing-gutter: clamp(1.5rem, 4vw, 4rem);
+  --spacing-section: clamp(5rem, 6vw + 3rem, 9rem);
+  --spacing-section-lg: clamp(7rem, 8vw + 4rem, 12rem);
+
+  /* Elevation */
+  --shadow-e1: 0 1px 2px hsl(0 0% 0% / 0.4);
+  --shadow-e2: 0 8px 24px -8px hsl(0 0% 0% / 0.5);
+  --shadow-e3: 0 24px 60px -16px hsl(0 0% 0% / 0.6);
+  --shadow-glow-signal: 0 0 32px -6px hsl(var(--signal) / 0.55);
+  --shadow-glow-element: 0 0 32px -6px hsl(var(--accent-element) / 0.5);
+
+  /* Radius */
+  --radius-sm: 0.5rem;
+  --radius: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 2rem;
 }
 
 html {
   scroll-behavior: auto;
-  background: var(--color-ink);
+  background: hsl(var(--background));
 }
 
 body {
   font-family: var(--font-body);
-  background: var(--color-ink);
-  color: var(--color-paper);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   overflow-x: hidden;
-  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(197, 254, 55, 0.08), transparent);
 }
 
 ::selection {
-  background: var(--color-signal);
-  color: var(--color-paper);
+  background: hsl(var(--foreground) / 0.85);
+  color: hsl(var(--background));
 }
 
-.font-display {
-  font-family: var(--font-display);
-}
-
-.text-outline {
-  -webkit-text-stroke: 1px var(--color-line);
-  color: transparent;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-ink);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-line);
-  border-radius: 4px;
-}
-
-/* -------------------------------------------------------------------
-   PREMIUM MOTION / MATERIAL SYSTEM
-   Shared across the site so every page reads as one visual language.
-   Two families of surface:
-   - LIGHT (default): the page itself — .surface-card, .text-premium
-   - DARK (accent moments only): hero cards / 3D showcases — hardcoded
-     colors, independent of the light page tokens above by design.
----------------------------------------------------------------------- */
-
-.gsap-reveal {
-  visibility: hidden;
-}
-
-.film-grain {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 50;
-  opacity: 0.035;
-  mix-blend-mode: multiply;
-  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23noiseFilter)"/></svg>');
-}
-
-/* Dark variant of grain for use inside dark showcase panels */
-.film-grain-dark {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 50;
-  opacity: 0.06;
-  mix-blend-mode: overlay;
-  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%25" height="100%25" filter="url(%23noiseFilter)"/></svg>');
-}
-
-/* Default: dark grid lines, for the light page */
-.bg-grid-theme {
-  background-size: 60px 60px;
-  background-image:
-    linear-gradient(to right, rgba(20, 23, 13, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(20, 23, 13, 0.05) 1px, transparent 1px);
-  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-}
-
-/* Light grid lines, for use inside dark showcase panels */
-.bg-grid-theme-dark {
-  background-size: 60px 60px;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-}
-
-/* Premium headline treatment for the LIGHT page: dark, subtly layered
-   text — not a silver/glow gradient, which only reads on dark surfaces. */
-.text-premium {
-  background: linear-gradient(180deg, #14170d 0%, #454a39 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transform: translateZ(0);
-}
-
-.text-3d-matte {
-  color: var(--color-paper);
-  text-shadow: 0 12px 24px rgba(20, 23, 13, 0.08), 0 2px 4px rgba(20, 23, 13, 0.06);
-}
-
-/* Silver text — reserved for INSIDE dark showcase surfaces only */
-.text-silver-matte {
-  background: linear-gradient(180deg, #ffffff 0%, #9098c2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transform: translateZ(0);
-  filter: drop-shadow(0px 10px 20px rgba(197, 254, 55, 0.12)) drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
-}
-
-.text-card-silver-matte {
-  background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transform: translateZ(0);
-  filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.8)) drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.6));
-}
-
-/* Generic light-surface card — the default content card across the site */
-.surface-card {
-  background: var(--color-void);
-  border: 1px solid var(--color-line);
-  box-shadow: 0 1px 2px rgba(20, 23, 13, 0.04), 0 20px 40px -24px rgba(20, 23, 13, 0.12);
-}
-
-/* Deep dark card — reserved for hero / 3D showcase moments only */
-.premium-depth-card {
-  background: linear-gradient(145deg, #171b33 0%, #05060a 100%);
-  box-shadow:
-    0 40px 100px -20px rgba(0, 0, 0, 0.9),
-    0 20px 40px -20px rgba(0, 0, 0, 0.8),
-    inset 0 1px 2px rgba(255, 255, 255, 0.2),
-    inset 0 -2px 4px rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
   position: relative;
+  overflow: hidden;
 }
-
-.card-sheen {
+.liquid-glass::before {
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.15) 80%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   pointer-events: none;
-  z-index: 50;
-  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(197, 254, 55, 0.07) 0%, transparent 40%);
-  mix-blend-mode: screen;
-  transition: opacity 0.3s ease;
 }
 
-.iphone-bezel {
-  background-color: #111;
-  box-shadow: inset 0 0 0 2px #52525b, inset 0 0 0 7px #000, 0 40px 80px -15px rgba(0, 0, 0, 0.9), 0 15px 25px -5px rgba(0, 0, 0, 0.7);
-  transform-style: preserve-3d;
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-rise {
+  animation: fade-rise 0.8s ease-out both;
+}
+.animate-fade-rise-delay {
+  animation: fade-rise 0.8s ease-out 0.2s both;
+}
+.animate-fade-rise-delay-2 {
+  animation: fade-rise 0.8s ease-out 0.4s both;
 }
 
-.hardware-btn {
-  background: linear-gradient(90deg, #404040 0%, #171717 100%);
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.8), inset -1px 0 1px rgba(255, 255, 255, 0.15), inset 1px 0 2px rgba(0, 0, 0, 0.8);
-  border-left: 1px solid rgba(255, 255, 255, 0.05);
+/* Hero noise textures — scoped to the cinematic video hero only. */
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-.screen-glare {
-  background: linear-gradient(110deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 45%);
-}
-
-.widget-depth {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.05), inset 0 -1px 1px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-.floating-ui-badge {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 100%);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 25px 50px -12px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -1px 1px rgba(0, 0, 0, 0.5);
-}
-
-/* Same badge, for use on LIGHT surfaces */
-.floating-ui-badge-light {
-  background: linear-gradient(135deg, rgba(20, 23, 13, 0.04) 0%, rgba(20, 23, 13, 0.01) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(20, 23, 13, 0.08);
-  box-shadow: 0 20px 40px -20px rgba(20, 23, 13, 0.15);
-}
-
-.btn-modern-light,
-.btn-modern-dark {
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.btn-modern-light {
-  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
-  color: #0f172a;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.1), 0 12px 24px -4px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 1), inset 0 -3px 6px rgba(0, 0, 0, 0.06);
-}
-.btn-modern-light:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 6px 12px -2px rgba(0, 0, 0, 0.15), 0 20px 32px -6px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 1), inset 0 -3px 6px rgba(0, 0, 0, 0.06);
-}
-.btn-modern-light:active {
-  transform: translateY(1px);
-  background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1), inset 0 3px 6px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.02);
-}
-.btn-modern-dark {
-  background: linear-gradient(180deg, #27272a 0%, #18181b 100%);
-  color: #ffffff;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.6), 0 12px 24px -4px rgba(0, 0, 0, 0.9), inset 0 1px 1px rgba(255, 255, 255, 0.15), inset 0 -3px 6px rgba(0, 0, 0, 0.8);
-}
-.btn-modern-dark:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(180deg, #3f3f46 0%, #27272a 100%);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15), 0 6px 12px -2px rgba(0, 0, 0, 0.7), 0 20px 32px -6px rgba(0, 0, 0, 1), inset 0 1px 1px rgba(255, 255, 255, 0.2), inset 0 -3px 6px rgba(0, 0, 0, 0.8);
-}
-.btn-modern-dark:active {
-  transform: translateY(1px);
-  background: #18181b;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 3px 8px rgba(0, 0, 0, 0.9), inset 0 0 0 1px rgba(0, 0, 0, 0.5);
-}
-
-.progress-ring {
-  transform: rotate(-90deg);
-  transform-origin: center;
-  stroke-dasharray: 402;
-  stroke-dashoffset: 402;
-  stroke-linecap: round;
-}
-
-/* Primary CTA — the main use of brand lime on the site */
-.btn-signal {
-  background: linear-gradient(180deg, var(--color-signal-light) 0%, var(--color-signal) 55%, var(--color-signal-dark) 100%);
-  color: var(--color-paper);
-  box-shadow:
-    0 0 0 1px rgba(20, 23, 13, 0.08),
-    0 10px 24px -8px rgba(148, 197, 24, 0.55),
-    inset 0 1px 1px rgba(255, 255, 255, 0.5),
-    inset 0 -2px 4px rgba(20, 23, 13, 0.12);
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.btn-signal:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 0 0 1px rgba(20, 23, 13, 0.1),
-    0 16px 32px -8px rgba(148, 197, 24, 0.65),
-    inset 0 1px 1px rgba(255, 255, 255, 0.55),
-    inset 0 -2px 4px rgba(20, 23, 13, 0.12);
-}
-.btn-signal:active {
-  transform: translateY(1px);
-}
-
-.btn-ghost {
-  background: rgba(20, 23, 13, 0.03);
-  border: 1px solid rgba(20, 23, 13, 0.14);
-  color: var(--color-paper);
-  backdrop-filter: blur(12px);
-  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.btn-ghost:hover {
-  background: rgba(20, 23, 13, 0.06);
-  border-color: rgba(20, 23, 13, 0.26);
-  transform: translateY(-2px);
-}
-
-/* Ghost button variant for use on dark showcase surfaces */
-.btn-ghost-dark {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: #ffffff;
-  backdrop-filter: blur(12px);
-  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-}
-.btn-ghost-dark:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.26);
-  transform: translateY(-2px);
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-rise,
+  .animate-fade-rise-delay,
+  .animate-fade-rise-delay-2 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
 }
