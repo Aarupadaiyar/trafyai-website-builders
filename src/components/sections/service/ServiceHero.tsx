@@ -4,13 +4,16 @@ import type { ServiceConfig } from "@/data/content/services";
 
 export function ServiceHero({ config }: { config: ServiceConfig }) {
   return (
-    <section className="relative px-gutter pt-28 pb-section overflow-hidden">
-      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
+    <section
+      className="relative px-gutter pt-24 pb-section overflow-hidden"
+      aria-labelledby="hero-heading"
+    >
+      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
         <div>
-          <span className="block text-caption uppercase tracking-[0.2em] text-accent-element mb-5">
+          <span className="block text-caption uppercase tracking-[0.25em] text-accent-element mb-5">
             {config.hero.eyebrow}
           </span>
-          <h1 className="font-display text-display-l text-foreground max-w-2xl">
+          <h1 id="hero-heading" className="font-display text-display-l text-foreground max-w-2xl">
             {config.hero.headline}
           </h1>
           <p className="mt-5 max-w-xl text-body-lg text-muted-foreground">

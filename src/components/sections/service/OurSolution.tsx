@@ -3,15 +3,18 @@ import type { ServiceConfig } from "@/data/content/services";
 
 export function OurSolution({ config }: { config: ServiceConfig }) {
   return (
-    <section className="px-gutter py-section">
+    <section className="px-gutter py-section" aria-labelledby="solution-heading">
       <div className="mx-auto max-w-5xl">
         <Reveal>
-          <h2 className="font-display text-h2 text-foreground max-w-2xl">
+          <span className="block text-caption uppercase tracking-[0.25em] text-accent-element mb-5">
+            Our Solution
+          </span>
+          <h2 id="solution-heading" className="font-display text-h2 text-foreground max-w-2xl">
             {config.solution.headline}
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
           {config.solution.steps.map((step, i) => (
             <Reveal key={step.title} delay={(i % 3) * 0.1}>
               <div className="border-t border-border pt-5">

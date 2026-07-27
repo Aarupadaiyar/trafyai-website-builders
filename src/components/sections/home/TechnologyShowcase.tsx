@@ -10,11 +10,11 @@ export function TechnologyShowcase(): JSX.Element {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-section px-gutter">
+    <section aria-labelledby="technology-heading" className="py-section px-gutter">
       <div className="mx-auto max-w-5xl">
-        <Reveal className="mb-14 max-w-2xl">
+        <Reveal className="mb-12 max-w-2xl">
           <span className="text-caption uppercase tracking-[0.25em] text-signal">Technology</span>
-          <h2 className="mt-4 font-display text-h1 text-foreground">
+          <h2 id="technology-heading" className="mt-4 font-display text-h1 text-foreground">
             The tools behind the systems we build.
           </h2>
         </Reveal>
@@ -46,7 +46,7 @@ export function TechnologyShowcase(): JSX.Element {
                     transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="shrink-0 text-muted-foreground"
                   >
-                    <Plus className="h-4 w-4" />
+                    <Plus aria-hidden="true" className="h-4 w-4" />
                   </motion.span>
                 </button>
 

@@ -106,7 +106,7 @@ export const liveMetrics = [
 
 export const finalCta = {
   headline: "Ready To Build Something Extraordinary?",
-  body: "Let's design systems that grow your business for years — not just launch another project.",
+  body: "Let's design systems that grow your business for years, not just launch another project.",
   primaryCta: "Book Discovery Call",
   secondaryCta: "View Our Process",
 };

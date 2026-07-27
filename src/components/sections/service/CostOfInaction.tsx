@@ -14,14 +14,17 @@ function parseLeadingNumber(raw: string): { value: number; suffix: string } | nu
 
 export function CostOfInaction({ config }: { config: ServiceConfig }) {
   return (
-    <section className="px-gutter py-section bg-secondary/40">
+    <section className="px-gutter py-section bg-secondary/40" aria-labelledby="cost-heading">
       <div className="mx-auto max-w-5xl">
         <Reveal>
-          <h2 className="font-display text-h2 text-foreground max-w-2xl">
+          <span className="block text-caption uppercase tracking-[0.25em] text-accent-element mb-5">
+            The Cost
+          </span>
+          <h2 id="cost-heading" className="font-display text-h2 text-foreground max-w-2xl">
             {config.costOfInaction.headline}
           </h2>
         </Reveal>
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-10">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8">
           {config.costOfInaction.stats.map((stat, i) => {
             const parsed = parseLeadingNumber(stat.value);
             return (

@@ -16,7 +16,7 @@ export const industries: IndustryConfig[] = [
     tagline: "Compliance, patient experience, and operational efficiency.",
     image: "https://images.unsplash.com/photo-1666886573531-48d2e3c2b684?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
-      "Healthcare businesses carry a higher bar than most: every system has to hold up to compliance scrutiny while still feeling human to the patient on the other end. We build for both at once — never trading one for the other.",
+      "Healthcare businesses carry a higher bar than most: every system has to hold up to compliance scrutiny while still feeling human to the patient on the other end. We build for both at once, never trading one for the other.",
     challenges: [
       "Patient records scattered across incompatible systems",
       "Booking and intake processes that frustrate patients before they've even been seen",
@@ -34,7 +34,7 @@ export const industries: IndustryConfig[] = [
     tagline: "Conversion, customer journey, and inventory intelligence.",
     image: "https://images.unsplash.com/photo-1743228672550-8b8f22cf0031?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
-      "Retail margins are won or lost in the details — a slow checkout, an out-of-sync inventory count, a customer journey that doesn't carry across channels. We build the systems that close those gaps.",
+      "Retail margins are won or lost in the details, a slow checkout, an out-of-sync inventory count, a customer journey that doesn't carry across channels. We build the systems that close those gaps.",
     challenges: [
       "Inventory counts that disagree between the store and the website",
       "Checkout flows that lose customers at the last step",
@@ -52,7 +52,7 @@ export const industries: IndustryConfig[] = [
     tagline: "Operations, automation, and reliability at scale.",
     image: "https://images.unsplash.com/photo-1554070211-e3953a3de374?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
-      "On a production floor, disconnected systems don't just cost time — they cost output. We unify finance, inventory, and operations into one operating system built around how manufacturing actually runs.",
+      "On a production floor, disconnected systems don't just cost time, they cost output. We unify finance, inventory, and operations into one operating system built around how manufacturing actually runs.",
     challenges: [
       "Finance, inventory, and production running on separate, disagreeing systems",
       "Manual reconciliation eating hours every week",
@@ -70,7 +70,7 @@ export const industries: IndustryConfig[] = [
     tagline: "Security, trust, and accuracy in every transaction.",
     image: "https://images.unsplash.com/photo-1758518727707-b023e285b709?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     description:
-      "In finance, trust is the product. Every system we build here is designed around accuracy and security first — then usability, never the other way around.",
+      "In finance, trust is the product. Every system we build here is designed around accuracy and security first, then usability, never the other way around.",
     challenges: [
       "Legacy systems that are trusted but hard to extend",
       "Manual processes standing in for real automation, quietly, for years",

@@ -31,16 +31,16 @@ export const about = {
     eyebrow: "About Trafy",
     headline: "We don't build software. We build momentum.",
     subhead:
-      "Trafy is a business transformation studio — a small team that treats every website, product, and system as infrastructure for growth, not a one-off deliverable.",
+      "Trafy is a business transformation studio, a small team that treats every website, product, and system as infrastructure for growth, not a one-off deliverable.",
     image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&q=80&fm=jpg&fit=crop&auto=format",
   },
   vision: {
     headline: "Vision",
-    body: "A future where every business, regardless of size, runs on systems built as thoughtfully as the products they sell — where technology compounds instead of accumulating as debt.",
+    body: "A future where every business, regardless of size, runs on systems built as thoughtfully as the products they sell, where technology compounds instead of accumulating as debt.",
   },
   mission: {
     headline: "Mission",
-    body: "To engineer measurable business transformation through design, engineering, automation, and growth — treating technology as leverage, never as the product itself.",
+    body: "To engineer measurable business transformation through design, engineering, automation, and growth, treating technology as leverage, never as the product itself.",
   },
   philosophy: {
     headline: "Philosophy",
@@ -57,7 +57,7 @@ export const about = {
     },
     {
       title: "Outcomes over deliverables",
-      body: "Success is measured in the business result — more revenue, more automation, better decisions — never just a shipped feature.",
+      body: "Success is measured in the business result, more revenue, more automation, better decisions, never just a shipped feature.",
     },
   ],
 };

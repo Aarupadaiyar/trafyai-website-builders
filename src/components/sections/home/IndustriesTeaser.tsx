@@ -6,11 +6,11 @@ import { industries } from "@/data/content";
 
 export function IndustriesTeaser(): JSX.Element {
   return (
-    <section id="industries" className="py-section px-gutter">
+    <section id="industries" aria-labelledby="industries-teaser-heading" className="py-section px-gutter">
       <div className="mx-auto max-w-6xl">
-        <Reveal className="mb-10 max-w-2xl">
+        <Reveal className="mb-8 max-w-2xl">
           <span className="text-caption uppercase tracking-[0.25em] text-signal">Industries</span>
-          <h2 className="mt-4 font-display text-h1 text-foreground">
+          <h2 id="industries-teaser-heading" className="mt-4 font-display text-h1 text-foreground">
             Built for the businesses we understand best.
           </h2>
         </Reveal>
@@ -18,7 +18,11 @@ export function IndustriesTeaser(): JSX.Element {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((industry, i) => (
             <Reveal key={industry.slug} delay={i * 0.06}>
-              <Link to={`/industries/${industry.slug}`} className="block h-full">
+              <Link
+                to={`/industries/${industry.slug}`}
+                className="block h-full"
+                aria-label={`View the ${industry.name} industry page`}
+              >
                 <motion.div
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}

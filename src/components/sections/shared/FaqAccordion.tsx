@@ -8,11 +8,16 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="px-gutter py-section">
+    <section className="px-gutter py-section" aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl">
-        <h2 className="font-display text-h2 text-foreground text-center">Questions, answered.</h2>
+        <span className="block text-caption uppercase tracking-[0.25em] text-accent-element mb-5 text-center">
+          FAQ
+        </span>
+        <h2 id="faq-heading" className="font-display text-h2 text-foreground text-center">
+          Questions, answered.
+        </h2>
 
-        <div className="mt-14 divide-y divide-border border-t border-b border-border">
+        <div className="mt-12 divide-y divide-border border-t border-b border-border">
           {items.map((item, i) => {
             const isOpen = openIndex === i;
             return (
@@ -25,6 +30,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
                 >
                   <span className="text-body-lg text-foreground">{item.question}</span>
                   <Plus
+                    aria-hidden="true"
                     className={cn(
                       "h-5 w-5 shrink-0 text-accent-element transition-transform duration-300",
                       isOpen && "rotate-45"

@@ -6,7 +6,7 @@ export function Testimonials(): JSX.Element {
   const items = testimonials.map(({ quote, author, role }) => ({ quote, author, role }));
 
   return (
-    <section className="py-section-lg px-gutter">
+    <section aria-labelledby="testimonials-heading" className="py-section-lg px-gutter">
       <TestimonialsCarousel items={items} />
     </section>
   );

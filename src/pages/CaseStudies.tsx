@@ -14,16 +14,16 @@ function parseNumeric(raw: string): { value: number; suffix: string } | null {
 export default function CaseStudies() {
   return (
     <PageTransition>
-      <div className="pt-32 pb-section-lg px-gutter">
+      <section aria-labelledby="case-studies-heading" className="pt-32 pb-section-lg px-gutter">
         <div className="mx-auto max-w-6xl">
           <Reveal className="max-w-2xl">
             <span className="text-caption uppercase tracking-[0.25em] text-signal">Case Studies</span>
-            <h1 className="mt-4 font-display text-display-l text-foreground">
+            <h1 id="case-studies-heading" className="mt-4 font-display text-display-l text-foreground">
               Outcomes, not screenshots.
             </h1>
           </Reveal>
 
-          <div className="mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
             {services.map((service, i) => {
               const { caseStudy } = service;
               const metricsToShow = caseStudy.metrics.slice(0, 2);
@@ -33,14 +33,15 @@ export default function CaseStudies() {
                   <Link
                     to={`/solutions/${service.slug}#case-study`}
                     className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-colors hover:border-signal/60"
+                    aria-label={`Read the ${caseStudy.client} case study`}
                   >
                     <img
                       src={service.image}
-                      alt={`${service.name} case study`}
+                      alt=""
                       loading="lazy"
                       className="aspect-[4/3] w-full rounded-t-2xl object-cover"
                     />
-                    <div className="flex flex-1 flex-col p-8">
+                    <div className="flex flex-1 flex-col p-6 sm:p-8">
                       <span className="text-caption uppercase tracking-wide text-muted-foreground">
                         {caseStudy.industry}
                       </span>
@@ -90,7 +91,7 @@ export default function CaseStudies() {
             })}
           </div>
         </div>
-      </div>
+      </section>
     </PageTransition>
   );
 }

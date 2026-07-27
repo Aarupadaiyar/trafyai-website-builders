@@ -40,15 +40,23 @@ export default function Contact() {
 
   return (
     <PageTransition>
-      <div className="pt-32 pb-section-lg px-gutter">
+      <section aria-labelledby="contact-heading" className="pt-32 pb-section-lg px-gutter">
         <div className="mx-auto max-w-3xl">
           <Reveal className="max-w-2xl">
-            <h1 className="font-display text-display-l text-foreground">{contact.headline}</h1>
+            <span className="text-caption uppercase tracking-[0.25em] text-signal">Contact</span>
+            <h1 id="contact-heading" className="mt-4 font-display text-display-l text-foreground">
+              {contact.headline}
+            </h1>
             <p className="mt-6 text-body-lg text-muted-foreground">{contact.subhead}</p>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <form onSubmit={handleSubmit} className="mt-14 space-y-6" noValidate>
+            <form
+              onSubmit={handleSubmit}
+              className="mt-10 space-y-5"
+              noValidate
+              aria-label="Contact form"
+            >
               <div>
                 <label htmlFor="contact-name" className="mb-2 block text-body-sm text-muted-foreground">
                   Name
@@ -117,14 +125,24 @@ export default function Contact() {
                 />
               </div>
 
-              <Button type="submit" variant="default" size="lg">
-                {contact.formCtaLabel}
-              </Button>
+              <div>
+                <Button
+                  type="submit"
+                  variant="default"
+                  size="lg"
+                  aria-describedby="contact-submit-hint"
+                >
+                  {contact.formCtaLabel}
+                </Button>
+                <p id="contact-submit-hint" className="mt-3 text-body-sm text-muted-foreground">
+                  Opens your email app with this message pre-filled, addressed to {brand.email}.
+                </p>
+              </div>
             </form>
           </Reveal>
 
           <Reveal delay={0.15}>
-            <p className="mt-12 border-t border-border pt-8 text-body text-muted-foreground">
+            <p className="mt-10 border-t border-border pt-6 text-body text-muted-foreground">
               Prefer to write directly?{" "}
               <a
                 href={`mailto:${brand.email}`}
@@ -135,7 +153,7 @@ export default function Contact() {
             </p>
           </Reveal>
         </div>
-      </div>
+      </section>
     </PageTransition>
   );
 }

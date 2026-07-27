@@ -4,11 +4,13 @@ import { challenges } from "@/data/content";
 
 export function BusinessChallenges() {
   return (
-    <section className="relative bg-background px-gutter py-section">
+    <section aria-labelledby="business-challenges-heading" className="relative bg-background px-gutter py-section">
       <div className="mx-auto max-w-6xl">
-        <Reveal className="mb-14 max-w-2xl">
+        <Reveal className="mb-12 max-w-2xl">
           <span className="text-caption uppercase tracking-[0.25em] text-signal">The Reality</span>
-          <h2 className="mt-4 font-display text-h1 text-foreground">Where growth quietly leaks out.</h2>
+          <h2 id="business-challenges-heading" className="mt-4 font-display text-h1 text-foreground">
+            Where growth quietly leaks out.
+          </h2>
         </Reveal>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

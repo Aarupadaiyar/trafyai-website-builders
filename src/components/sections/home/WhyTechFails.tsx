@@ -3,15 +3,21 @@ import { whyTechFails } from "@/data/content";
 
 export function WhyTechFails() {
   return (
-    <section className="relative bg-foreground px-gutter py-section-lg">
+    <section aria-labelledby="why-tech-fails-heading" className="relative bg-foreground px-gutter py-section-lg">
       <div className="mx-auto max-w-5xl">
         <Reveal>
-          <p className="mx-auto max-w-3xl text-center font-display text-display-l text-background">
+          <span className="mb-4 block text-center text-caption uppercase tracking-[0.25em] text-signal">
+            Why Tech Fails
+          </span>
+          <h2
+            id="why-tech-fails-heading"
+            className="mx-auto max-w-3xl text-center font-display text-display-l text-background"
+          >
             &ldquo;{whyTechFails.quote}&rdquo;
-          </p>
+          </h2>
         </Reveal>
 
-        <div className="mt-20 grid gap-14 md:grid-cols-2 md:gap-20">
+        <div className="mt-16 grid gap-12 md:grid-cols-2 md:gap-16">
           <Reveal delay={0.1}>
             <div>
               <span className="text-caption uppercase tracking-[0.25em] text-background/60">Typical Agency</span>
@@ -33,7 +39,7 @@ export function WhyTechFails() {
             <ol className="mt-6 border-l border-background/20 pl-6">
               {whyTechFails.trafy.map((step, i) => (
                 <Reveal key={step} delay={0.15 + i * 0.08}>
-                  <li className="relative pb-8 last:pb-0">
+                  <li className="relative pb-6 last:pb-0">
                     <span className="absolute -left-6 top-1.5 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-signal shadow-glow-signal" />
                     <span className="text-body text-background">{step}</span>
                   </li>

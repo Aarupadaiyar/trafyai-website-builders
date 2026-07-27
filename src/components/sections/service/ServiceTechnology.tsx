@@ -8,13 +8,18 @@ export function ServiceTechnology({ config }: { config: ServiceConfig }) {
   }, {});
 
   return (
-    <section className="px-gutter py-section">
+    <section className="px-gutter py-section" aria-labelledby="technology-heading">
       <div className="mx-auto max-w-5xl">
         <Reveal>
-          <h2 className="font-display text-h2 text-foreground">The technology underneath.</h2>
+          <span className="block text-caption uppercase tracking-[0.25em] text-accent-element mb-5">
+            Technology
+          </span>
+          <h2 id="technology-heading" className="font-display text-h2 text-foreground">
+            The technology underneath.
+          </h2>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {Object.entries(groups).map(([category, names], i) => (
             <Reveal key={category} delay={i * 0.08}>
               <div>

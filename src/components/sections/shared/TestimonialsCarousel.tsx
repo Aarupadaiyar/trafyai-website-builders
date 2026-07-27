@@ -5,11 +5,21 @@ import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import { cn } from "@/lib/utils";
 
 export type TestimonialItem = { quote: string; author: string; role: string };
-type TestimonialsCarouselProps = { items: TestimonialItem[] };
+type TestimonialsCarouselProps = {
+  items: TestimonialItem[];
+  /** Small-caps eyebrow label shown above the carousel; also used as the accessible section heading. */
+  eyebrow?: string;
+  /** id applied to the (visually hidden) heading, for `aria-labelledby` on a wrapping <section>. */
+  headingId?: string;
+};
 
 const AUTO_ADVANCE_MS = 7000;
 
-export function TestimonialsCarousel({ items }: TestimonialsCarouselProps): JSX.Element {
+export function TestimonialsCarousel({
+  items,
+  eyebrow = "Testimonials",
+  headingId = "testimonials-heading",
+}: TestimonialsCarouselProps): JSX.Element {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -34,6 +44,10 @@ export function TestimonialsCarousel({ items }: TestimonialsCarouselProps): JSX.
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      <span className="mb-8 block text-caption uppercase tracking-[0.25em] text-signal">{eyebrow}</span>
+      <h2 id={headingId} className="sr-only">
+        {eyebrow}
+      </h2>
       <AnimatePresence mode="wait">
         <motion.div
           key={index}

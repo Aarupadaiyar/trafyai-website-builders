@@ -4,9 +4,18 @@ import type { ServiceConfig } from "@/data/content/services";
 
 export function InteractiveCapabilities({ config }: { config: ServiceConfig }) {
   return (
-    <section className="px-gutter py-section">
+    <section className="px-gutter py-section" aria-labelledby="capabilities-heading">
       <div className="mx-auto max-w-5xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <Reveal>
+          <span className="block text-caption uppercase tracking-[0.25em] text-accent-element mb-5">
+            Capabilities
+          </span>
+          <h2 id="capabilities-heading" className="font-display text-h2 text-foreground max-w-2xl">
+            What this actually includes.
+          </h2>
+        </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6">
           {config.capabilities.map((capability, i) => (
             <Reveal key={capability.title} delay={i * 0.08}>
               <motion.div

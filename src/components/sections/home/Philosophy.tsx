@@ -25,7 +25,11 @@ export function Philosophy() {
   );
 
   return (
-    <section id="philosophy" className="relative overflow-hidden bg-background px-gutter py-section-lg">
+    <section
+      id="philosophy"
+      aria-labelledby="philosophy-heading"
+      className="relative overflow-hidden bg-background px-gutter py-section-lg"
+    >
       {/* Continuous slow orbit + counter-rotation so node content stays upright.
           Pure CSS (paused via :hover, frozen via prefers-reduced-motion) — scoped
           to this component only, no shared stylesheet edits required. */}
@@ -41,10 +45,12 @@ export function Philosophy() {
         }
       `}</style>
 
-      <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2 lg:items-center">
+      <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-2 lg:items-center">
         <Reveal>
           <span className="text-caption uppercase tracking-[0.25em] text-signal">Our Philosophy</span>
-          <h2 className="mt-4 font-display text-h1 text-foreground">{philosophy.headline}</h2>
+          <h2 id="philosophy-heading" className="mt-4 font-display text-h1 text-foreground">
+            {philosophy.headline}
+          </h2>
           <p className="mt-6 max-w-lg text-body leading-relaxed text-muted-foreground">{philosophy.body}</p>
         </Reveal>
 

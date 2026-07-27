@@ -28,15 +28,17 @@ export default function IndustryPage() {
     <PageTransition>
       <div className="min-h-screen">
         {/* Hero */}
-        <section className="px-gutter pb-section pt-32">
+        <section aria-labelledby="industry-hero-heading" className="px-gutter pb-section pt-32">
           <div className="mx-auto max-w-4xl">
             <Reveal>
               <span className="text-caption uppercase tracking-[0.25em] text-signal">Industry</span>
-              <h1 className="mt-4 font-display text-display-l text-foreground">{industry.name}</h1>
+              <h1 id="industry-hero-heading" className="mt-4 font-display text-display-l text-foreground">
+                {industry.name}
+              </h1>
               <p className="mt-6 text-body-lg text-muted-foreground">{industry.tagline}</p>
             </Reveal>
 
-            <Reveal delay={0.1} className="mt-10">
+            <Reveal delay={0.1} className="mt-8">
               <div className="aspect-[16/9] w-full overflow-hidden rounded-xl shadow-e3">
                 <img
                   src={industry.image}
@@ -50,22 +52,28 @@ export default function IndustryPage() {
         </section>
 
         {/* Description */}
-        <section className="px-gutter py-section">
+        <section aria-labelledby="industry-overview-heading" className="px-gutter py-section">
           <div className="mx-auto max-w-4xl">
             <Reveal>
-              <p className="text-body-lg leading-relaxed text-foreground">{industry.description}</p>
+              <span className="text-caption uppercase tracking-[0.25em] text-signal">Overview</span>
+              <h2 id="industry-overview-heading" className="sr-only">
+                {industry.name} overview
+              </h2>
+              <p className="mt-4 text-body-lg leading-relaxed text-foreground">
+                {industry.description}
+              </p>
             </Reveal>
           </div>
         </section>
 
         {/* Challenges */}
-        <section className="bg-secondary/40 px-gutter py-section">
+        <section aria-labelledby="industry-challenges-heading" className="bg-secondary/40 px-gutter py-section">
           <div className="mx-auto max-w-4xl">
-            <Reveal className="mb-10 max-w-2xl">
+            <Reveal className="mb-8 max-w-2xl">
               <span className="text-caption uppercase tracking-[0.25em] text-signal">
                 What we see
               </span>
-              <h2 className="mt-4 font-display text-h2 text-foreground">
+              <h2 id="industry-challenges-heading" className="mt-4 font-display text-h2 text-foreground">
                 Where {industry.name.toLowerCase()} businesses lose ground.
               </h2>
             </Reveal>
@@ -87,13 +95,13 @@ export default function IndustryPage() {
 
         {/* Relevant Services */}
         {relevantServices.length > 0 && (
-          <section className="px-gutter py-section">
+          <section aria-labelledby="industry-services-heading" className="px-gutter py-section">
             <div className="mx-auto max-w-4xl">
-              <Reveal className="mb-10 max-w-2xl">
+              <Reveal className="mb-8 max-w-2xl">
                 <span className="text-caption uppercase tracking-[0.25em] text-signal">
                   Where we help
                 </span>
-                <h2 className="mt-4 font-display text-h2 text-foreground">
+                <h2 id="industry-services-heading" className="mt-4 font-display text-h2 text-foreground">
                   Relevant services for {industry.name.toLowerCase()}.
                 </h2>
               </Reveal>
@@ -101,7 +109,11 @@ export default function IndustryPage() {
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 {relevantServices.map((service, i) => (
                   <Reveal key={service.slug} delay={i * 0.07}>
-                    <Link to={`/solutions/${service.slug}`} className="block h-full">
+                    <Link
+                      to={`/solutions/${service.slug}`}
+                      className="block h-full"
+                      aria-label={`Learn more about our ${service.name} service`}
+                    >
                       <div className="h-full rounded-lg border border-border bg-surface p-6 transition-colors duration-300 hover:border-signal/30">
                         <span className="text-caption text-muted-foreground">{service.index}</span>
                         <h3 className="mt-2 font-display text-h3 text-foreground">{service.name}</h3>
@@ -116,13 +128,15 @@ export default function IndustryPage() {
         )}
 
         {/* Metrics */}
-        <section className="bg-secondary/40 px-gutter py-section">
+        <section aria-labelledby="industry-metrics-heading" className="bg-secondary/40 px-gutter py-section">
           <div className="mx-auto max-w-4xl">
-            <Reveal className="mb-10 max-w-2xl">
+            <Reveal className="mb-8 max-w-2xl">
               <span className="text-caption uppercase tracking-[0.25em] text-signal">
                 The results
               </span>
-              <h2 className="mt-4 font-display text-h2 text-foreground">Numbers that hold up.</h2>
+              <h2 id="industry-metrics-heading" className="mt-4 font-display text-h2 text-foreground">
+                Numbers that hold up.
+              </h2>
             </Reveal>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -153,15 +167,16 @@ export default function IndustryPage() {
         </section>
 
         {/* CTA */}
-        <section className="px-gutter py-section-lg">
+        <section aria-labelledby="industry-cta-heading" className="px-gutter py-section-lg">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-h1 text-foreground">
+            <span className="text-caption uppercase tracking-[0.25em] text-signal">Get started</span>
+            <h2 id="industry-cta-heading" className="mt-4 font-display text-h1 text-foreground">
               Let's talk about {industry.name.toLowerCase()}.
             </h2>
             <p className="mt-6 text-body-lg text-muted-foreground">
               Tell us where the friction is — we'll show you how we'd build around it.
             </p>
-            <div className="mt-10 flex justify-center">
+            <div className="mt-8 flex justify-center">
               <Button variant="glass" size="lg" asChild>
                 <Link to="/contact">Talk to us about {industry.name}</Link>
               </Button>

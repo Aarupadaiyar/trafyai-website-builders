@@ -3,18 +3,24 @@ import type { ServiceConfig } from "@/data/content/services";
 
 export function WhyOthersFail({ config }: { config: ServiceConfig }) {
   return (
-    <section className="px-gutter py-section">
+    <section className="px-gutter py-section" aria-labelledby="why-others-fail-heading">
       <div className="mx-auto max-w-5xl">
         <Reveal>
-          <h2 className="font-display text-h2 text-foreground max-w-2xl mx-auto text-center">
+          <span className="block text-caption uppercase tracking-[0.25em] text-accent-element mb-5 text-center">
+            The Difference
+          </span>
+          <h2
+            id="why-others-fail-heading"
+            className="font-display text-h2 text-foreground max-w-2xl mx-auto text-center"
+          >
             {config.whyOthersFail.headline}
           </h2>
         </Reveal>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-10 md:gap-6 items-start">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-6 items-start">
           <Reveal delay={0.1}>
             <div>
-              <span className="text-caption uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="text-caption uppercase tracking-[0.25em] text-muted-foreground">
                 Typical Agency
               </span>
               <ol className="mt-6 space-y-4">
@@ -32,7 +38,7 @@ export function WhyOthersFail({ config }: { config: ServiceConfig }) {
 
           <Reveal delay={0.2}>
             <div>
-              <span className="text-caption uppercase tracking-[0.2em] text-accent-element">
+              <span className="text-caption uppercase tracking-[0.25em] text-accent-element">
                 Trafy
               </span>
               <ol className="mt-6 space-y-4">

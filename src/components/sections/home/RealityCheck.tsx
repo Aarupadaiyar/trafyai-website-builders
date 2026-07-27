@@ -1,10 +1,27 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { gsap, useScrollTrigger } from "@/lib/useScrollTrigger";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import { realityCheck } from "@/data/content";
+
+// A full-height scroll-jacked pin is a poor fit for small touch screens, so we
+// fall back to the same static end-state used for prefers-reduced-motion.
+function useIsSmallScreen() {
+  const [isSmall, setIsSmall] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 767px)");
+    const onChange = () => setIsSmall(mql.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  return isSmall;
+}
 
 type Shape = { top: string; left: string; x: number; y: number; rotate: number; size: number };
 
@@ -19,10 +36,12 @@ const SHAPES: Shape[] = [
 export function RealityCheck() {
   const scope = useRef<HTMLDivElement>(null);
   const reducedMotion = usePrefersReducedMotion();
+  const isSmallScreen = useIsSmallScreen();
+  const skipPin = reducedMotion || isSmallScreen;
 
   useScrollTrigger(
     () => {
-      if (reducedMotion) return; // static end-state is rendered instead, see below
+      if (skipPin) return; // static end-state is rendered instead, see below
 
       gsap.set(".rc-shape", {
         x: (i: number) => SHAPES[i].x,
@@ -46,13 +65,14 @@ export function RealityCheck() {
         .to(".rc-body", { opacity: 1, y: 0, duration: 0.6 }, 0.62)
         .to(".rc-cta", { opacity: 1, y: 0, duration: 0.4 }, 0.88);
     },
-    { scope, dependencies: [reducedMotion] }
+    { scope, dependencies: [skipPin] }
   );
 
   return (
     <section
       ref={scope}
       id="reality-check"
+      aria-labelledby="reality-check-heading"
       className="relative flex min-h-screen items-center overflow-hidden bg-background py-section"
     >
       <div className="pointer-events-none absolute inset-0">
@@ -65,17 +85,20 @@ export function RealityCheck() {
               left: shape.left,
               width: shape.size,
               height: shape.size,
-              transform: reducedMotion ? undefined : `translate(${shape.x}px, ${shape.y}px) rotate(${shape.rotate}deg)`,
+              transform: skipPin ? undefined : `translate(${shape.x}px, ${shape.y}px) rotate(${shape.rotate}deg)`,
             }}
           />
         ))}
       </div>
 
       <div className="relative mx-auto max-w-3xl px-gutter text-center">
-        {reducedMotion ? (
+        {skipPin ? (
           <>
             <Reveal>
-              <h2 className="font-display text-h1 text-foreground">{realityCheck.headline}</h2>
+              <span className="mb-4 block text-caption uppercase tracking-[0.25em] text-signal">Reality Check</span>
+              <h2 id="reality-check-heading" className="font-display text-h1 text-foreground">
+                {realityCheck.headline}
+              </h2>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-2 font-display text-h1 text-muted-foreground">{realityCheck.secondHeadline}</h2>
@@ -89,7 +112,10 @@ export function RealityCheck() {
           </>
         ) : (
           <>
-            <h2 className="rc-headline font-display text-h1 text-foreground">{realityCheck.headline}</h2>
+            <span className="mb-4 block text-caption uppercase tracking-[0.25em] text-signal">Reality Check</span>
+            <h2 id="reality-check-heading" className="rc-headline font-display text-h1 text-foreground">
+              {realityCheck.headline}
+            </h2>
             <h2 className={cn("rc-second mt-2 font-display text-h1 text-muted-foreground")}>
               {realityCheck.secondHeadline}
             </h2>

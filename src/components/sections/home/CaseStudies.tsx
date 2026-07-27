@@ -32,11 +32,11 @@ export function CaseStudies(): JSX.Element {
   const current = caseStudiesFeatured[index];
 
   return (
-    <section id="work" className="py-section-lg px-gutter">
+    <section id="work" aria-labelledby="case-studies-heading" className="py-section-lg px-gutter">
       <div className="mx-auto max-w-5xl">
         <Reveal className="mb-10 max-w-2xl">
           <span className="text-caption uppercase tracking-[0.25em] text-signal">Case Studies</span>
-          <h2 className="mt-4 font-display text-h1 text-foreground">
+          <h2 id="case-studies-heading" className="mt-4 font-display text-h1 text-foreground">
             Outcomes, not screenshots.
           </h2>
         </Reveal>
@@ -84,13 +84,13 @@ export function CaseStudies(): JSX.Element {
                               {before.value}
                               {before.suffix}
                             </span>
-                            <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
                             <CountUpStat value={after.value} suffix={after.suffix} />
                           </div>
                         ) : (
                           <div className="mt-2 flex items-baseline gap-3 font-display">
                             <span className="text-h3 text-muted-foreground opacity-60">{metric.before}</span>
-                            <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                            <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0 text-muted-foreground" />
                             <span className="text-h1 text-signal">{metric.after}</span>
                           </div>
                         )}
@@ -104,7 +104,7 @@ export function CaseStudies(): JSX.Element {
                   className="mt-8 inline-flex items-center gap-2 text-body text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-signal"
                 >
                   View service
-                  <ArrowUpRight className="h-4 w-4" />
+                  <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
                 </Link>
               </div>
             </motion.div>
@@ -118,7 +118,7 @@ export function CaseStudies(): JSX.Element {
                 onClick={() => setIndex((i) => (i - 1 + total) % total)}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-signal"
               >
-                <ChevronLeft className="h-4 w-4" />
+                <ChevronLeft aria-hidden="true" className="h-4 w-4" />
               </button>
               <button
                 type="button"
@@ -126,9 +126,9 @@ export function CaseStudies(): JSX.Element {
                 onClick={() => setIndex((i) => (i + 1) % total)}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-border transition-colors hover:border-signal"
               >
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight aria-hidden="true" className="h-4 w-4" />
               </button>
-              <div className="ml-2 flex items-center gap-2">
+              <div aria-hidden="true" className="ml-2 flex items-center gap-2">
                 {caseStudiesFeatured.map((cs, i) => (
                   <span
                     key={cs.client}
