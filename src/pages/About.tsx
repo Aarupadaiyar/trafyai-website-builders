@@ -29,7 +29,7 @@ export default function About() {
             <Reveal delay={0.1} className="mt-8">
               <img
                 src={about.hero.image}
-                alt="Trafy workspace"
+                alt="Stat6 workspace"
                 loading="lazy"
                 className="aspect-[21/9] w-full rounded-xl object-cover"
               />

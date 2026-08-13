@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { brand } from "@/data/content";
 import type { ServiceConfig } from "@/data/content/services";
 
 export function ServiceHero({ config }: { config: ServiceConfig }) {
@@ -21,7 +22,7 @@ export function ServiceHero({ config }: { config: ServiceConfig }) {
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Button variant="glass" size="lg" asChild>
-              <a href={`mailto:hello@trafy.ai?subject=${encodeURIComponent(config.name)}`}>
+              <a href={`mailto:${brand.email}?subject=${encodeURIComponent(config.name)}`}>
                 {config.hero.primaryCta}
               </a>
             </Button>

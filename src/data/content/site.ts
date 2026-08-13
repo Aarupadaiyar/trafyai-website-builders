@@ -1,8 +1,8 @@
 export const brand = {
-  name: "Trafy",
-  fullName: "Trafy AI",
+  name: "Stat6",
+  fullName: "Stat6 AI",
   statement: "We don't build software. We build business momentum.",
-  email: "hello@trafy.ai",
+  email: "hello@stat6.ai",
 };
 
 export type NavAnchor = { label: string; href: string };
@@ -28,10 +28,10 @@ export const footerColumns = {
 
 export const about = {
   hero: {
-    eyebrow: "About Trafy",
+    eyebrow: "About Stat6",
     headline: "We don't build software. We build momentum.",
     subhead:
-      "Trafy is a business transformation studio, a small team that treats every website, product, and system as infrastructure for growth, not a one-off deliverable.",
+      "Stat6 is a business transformation studio, a small team that treats every website, product, and system as infrastructure for growth, not a one-off deliverable.",
     image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1600&q=80&fm=jpg&fit=crop&auto=format",
   },
   vision: {

@@ -39,7 +39,7 @@ export function WhyOthersFail({ config }: { config: ServiceConfig }) {
           <Reveal delay={0.2}>
             <div>
               <span className="text-caption uppercase tracking-[0.25em] text-accent-element">
-                Trafy
+                Stat6
               </span>
               <ol className="mt-6 space-y-4">
                 {config.whyOthersFail.trafy.map((step, i) => (

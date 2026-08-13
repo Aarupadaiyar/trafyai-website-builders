@@ -43,7 +43,7 @@ export function Nav() {
     >
       <nav className="flex items-center justify-between px-6 lg:px-10 py-5 max-w-7xl mx-auto">
         <Link to="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-          <span className="text-2xl tracking-tight text-foreground font-display">{brand.name}</span>
+          <span className="text-2xl tracking-tighter text-foreground font-brand uppercase">{brand.name}</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-9">

@@ -23,7 +23,7 @@
 }
 
 :root {
-  /* shadcn-style raw HSL triplets — warm white, premium editorial theme */
+  /* shadcn-style raw HSL triplets, warm white, premium editorial theme */
   --background: 0 0% 100%;
   --foreground: 0 0% 4%;
   --muted-foreground: 0 0% 40%;
@@ -35,17 +35,17 @@
   --border: 0 0% 88%;
   --input: 0 0% 88%;
 
-  /* Trafy brand lime — used sparingly as an accent (labels, hover glow,
+  /* Stat6 brand lime, used sparingly as an accent (labels, hover glow,
      small indicators), never as a fill. Kept under ~5% of total color
      usage on any page; the base theme is neutral black/white. */
   --signal: 77 96% 62%;
   --surface: 0 0% 96%;
 
-  /* "Ink" — a near-black reserved for occasional brand-flavoured text,
+  /* "Ink", a near-black reserved for occasional brand-flavoured text,
      kept neutral (no blue) to match the base theme. */
   --ink: 0 0% 4%;
 
-  /* Elemental accents — one per service, activated per-page via [data-theme].
+  /* Elemental accents, one per service, activated per-page via [data-theme].
      Homepage stays neutral: --accent-element falls back to --foreground. */
   --accent-element: 0 0% 4%;
   --el-water: 205 85% 45%;   /* Website Development */
@@ -82,6 +82,7 @@
 
   --font-display: "Instrument Serif", serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-brand: "Archivo Black", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Semantic type scale */
   --text-display-xl: clamp(4rem, 4.5rem + 3vw, 9rem);
@@ -192,7 +193,7 @@ body {
   animation: fade-rise 0.8s ease-out 0.4s both;
 }
 
-/* Hero noise textures — scoped to the cinematic video hero only. */
+/* Hero noise textures, scoped to the cinematic video hero only. */
 .noise-overlay {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

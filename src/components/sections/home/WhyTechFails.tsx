@@ -35,7 +35,7 @@ export function WhyTechFails() {
           </Reveal>
 
           <div>
-            <span className="text-caption uppercase tracking-[0.25em] text-signal">Trafy</span>
+            <span className="text-caption uppercase tracking-[0.25em] text-signal">Stat6</span>
             <ol className="mt-6 border-l border-background/20 pl-6">
               {whyTechFails.trafy.map((step, i) => (
                 <Reveal key={step} delay={0.15 + i * 0.08}>

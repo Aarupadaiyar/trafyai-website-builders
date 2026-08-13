@@ -198,7 +198,7 @@ export function ROICalculator({ config }: { config: ServiceConfig }) {
               </p>
 
               <Button variant="glass" size="lg" className="mt-6 w-full" asChild>
-                <a href={mailtoHref}>Send this estimate to Trafy</a>
+                <a href={mailtoHref}>Send this estimate to Stat6</a>
               </Button>
             </div>
           </div>
