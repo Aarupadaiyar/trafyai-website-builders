@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#c7fb3f"/>
+  <text
+    x="32"
+    y="34"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="'Archivo Black', 'Arial Black', -apple-system, sans-serif"
+    font-weight="900"
+    font-size="20"
+    textLength="52"
+    lengthAdjust="spacingAndGlyphs"
+    fill="#0a0a0a"
+  >STAT6</text>
+</svg>

@@ -1,10 +1,17 @@
 export const hero = {
   eyebrow: "Business Transformation Studio",
-  headline: "Build Businesses. Not Just Software.",
+  headline: "We Don't Build Software. We Build Momentum.",
+  emphasis: "Momentum.",
   subhead:
-    "We partner with ambitious companies to engineer digital transformation through design, engineering, automation, and measurable growth.",
-  primaryCta: "Start Your Transformation",
-  secondaryCta: "Explore Our Process",
+    "One team engineering the websites, apps, ERP, and CRM systems ambitious companies actually run on. Built fast. Built right. Built to scale.",
+  pills: ["Web & App Dev", "ERP Systems", "CRM & Automation", "Digital Growth"],
+  primaryCta: "See Our Work",
+  secondaryCta: "Book a Call",
+  stats: [
+    { value: "120+", label: "Projects Delivered" },
+    { value: "4,200+", label: "Hours Automated Monthly" },
+    { value: "8+", label: "Years Building" },
+  ],
 };
 
 export const realityCheck = {

@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import { philosophy, services } from "@/data/content";
 
-const RADIUS = 42; // percentage of the container
+const RADIUS = 38; // percentage of the container (leaves room for the node's own radius)
 
 export function Philosophy() {
   const reducedMotion = usePrefersReducedMotion();
@@ -57,8 +57,8 @@ export function Philosophy() {
         <Reveal delay={0.15}>
           <div className="relative mx-auto aspect-square w-full max-w-[26rem]">
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="flex h-28 w-28 flex-col items-center justify-center rounded-full border border-border bg-surface text-center shadow-e2">
-                <span className="font-display text-body-lg text-foreground">Business</span>
+              <div className="flex h-20 w-20 sm:h-28 sm:w-28 flex-col items-center justify-center rounded-full border border-border bg-surface text-center shadow-e2">
+                <span className="font-display text-body-sm sm:text-body-lg text-foreground">Business</span>
               </div>
             </div>
 
@@ -77,7 +77,7 @@ export function Philosophy() {
                       onMouseLeave={() => setActiveSlug((current) => (current === service.slug ? null : current))}
                       onFocus={() => setActiveSlug(service.slug)}
                       onBlur={() => setActiveSlug((current) => (current === service.slug ? null : current))}
-                      className="group flex h-14 w-14 items-center justify-center rounded-full border border-border bg-background text-center transition-colors hover:border-signal/60 hover:bg-secondary"
+                      className="group flex h-11 w-11 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-border bg-background text-center transition-colors hover:border-signal/60 hover:bg-secondary"
                     >
                       <span className="text-caption text-muted-foreground transition-colors group-hover:text-signal">
                         {service.index}
@@ -85,7 +85,7 @@ export function Philosophy() {
                     </Link>
                     <span
                       className={cn(
-                        "pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-40 -translate-x-1/2 rounded-md border border-border bg-background/95 px-3 py-2 text-center shadow-e2 opacity-0 transition-opacity duration-300",
+                        "pointer-events-none absolute left-1/2 top-full z-10 mt-2 w-32 sm:w-40 max-w-[min(10rem,calc(100vw-2.5rem))] -translate-x-1/2 rounded-md border border-border bg-background/95 px-3 py-2 text-center shadow-e2 opacity-0 transition-opacity duration-300",
                         activeSlug === service.slug && "opacity-100"
                       )}
                     >
