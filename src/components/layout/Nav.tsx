@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { getLenis } from "@/lib/useLenis";
 import { cn } from "@/lib/utils";
+import { usePrefersReducedMotion } from "@/lib/usePrefersReducedMotion";
 import { brand, navAnchors, services } from "@/data/content";
 
 export function Nav() {
@@ -12,6 +13,7 @@ export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -43,7 +45,14 @@ export function Nav() {
     >
       <nav className="flex items-center justify-between px-6 lg:px-10 py-5 max-w-7xl mx-auto">
         <Link to="/" className="flex items-center" onClick={() => setMobileOpen(false)}>
-          <span className="text-2xl tracking-tighter text-foreground font-brand uppercase">{brand.name}</span>
+          <motion.span
+            initial={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: reducedMotion ? 0 : 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="text-2xl tracking-tighter text-foreground font-brand uppercase"
+          >
+            {brand.name}
+          </motion.span>
         </Link>
 
         <div className="hidden md:flex items-center gap-9">

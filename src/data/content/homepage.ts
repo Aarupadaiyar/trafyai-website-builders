@@ -1,7 +1,7 @@
 export const hero = {
   eyebrow: "Business Transformation Studio",
-  headline: "We Don't Build Software. We Build Momentum.",
-  emphasis: "Momentum.",
+  headline: "We Build Momentum, Not Just Software.",
+  emphasis: "Momentum",
   subhead:
     "One team engineering the websites, apps, ERP, and CRM systems ambitious companies actually run on. Built fast. Built right. Built to scale.",
   pills: ["Web & App Dev", "ERP Systems", "CRM & Automation", "Digital Growth"],
