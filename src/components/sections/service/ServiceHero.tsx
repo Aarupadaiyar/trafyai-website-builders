@@ -2,14 +2,17 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { brand } from "@/data/content";
 import type { ServiceConfig } from "@/data/content/services";
+import { DASHBOARD_MOCKUPS } from "@/components/sections/home/dashboardMockups";
 
 export function ServiceHero({ config }: { config: ServiceConfig }) {
+  const DashboardMockup = DASHBOARD_MOCKUPS[config.slug];
+
   return (
     <section
       className="relative px-gutter pt-24 pb-section overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-14 items-center">
         <div>
           <span className="block text-caption uppercase tracking-[0.25em] text-accent-element mb-5">
             {config.hero.eyebrow}
@@ -33,19 +36,11 @@ export function ServiceHero({ config }: { config: ServiceConfig }) {
         </div>
 
         <motion.div
-          layoutId={`solution-panel-${config.slug}`}
-          className="bg-accent-element relative aspect-[4/5] w-full rounded-xl overflow-hidden shadow-glow-element"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img
-            src={config.image}
-            alt={config.name}
-            loading="lazy"
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-accent-element/80 via-accent-element/25 to-accent-element/10" />
-          <span className="absolute bottom-8 left-8 font-display text-h1 text-background/90">
-            {config.index}
-          </span>
+          <DashboardMockup service={config} />
         </motion.div>
       </div>
     </section>

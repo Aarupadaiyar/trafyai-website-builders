@@ -170,7 +170,7 @@ export const services: ServiceConfig[] = [
     element: "air",
     hero: {
       eyebrow: "App Development",
-      headline: "Don't Build Another App. Build One Customers Return To.",
+      headline: "Build an App Customers Actually Return To.",
       subhead:
         "The market doesn't need more apps. It needs experiences worth opening twice.",
       primaryCta: "Book Consultation",

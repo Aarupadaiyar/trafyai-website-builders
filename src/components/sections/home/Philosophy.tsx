@@ -1,89 +1,90 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, Plus } from "lucide-react";
+import { ArrowRight, Boxes, Globe, Share2, Smartphone, TrendingUp, Users, type LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { cn } from "@/lib/utils";
 import { philosophy, services } from "@/data/content";
+import { DASHBOARD_MOCKUPS } from "./dashboardMockups";
+
+const TAB_ICONS: Record<string, LucideIcon> = {
+  "website-development": Globe,
+  "app-development": Smartphone,
+  "erp-solutions": Boxes,
+  "crm-solutions": Users,
+  "digital-marketing": TrendingUp,
+  "social-media-management": Share2,
+};
 
 export function Philosophy() {
-  const [openSlug, setOpenSlug] = useState<string | null>(null);
+  const [activeSlug, setActiveSlug] = useState(services[0].slug);
+  const active = services.find((service) => service.slug === activeSlug) ?? services[0];
+  const DashboardMockup = DASHBOARD_MOCKUPS[active.slug];
 
   return (
     <section
       id="philosophy"
       aria-labelledby="philosophy-heading"
-      className="relative overflow-hidden bg-background px-gutter py-section-lg"
+      className="relative overflow-hidden bg-warm-surface px-gutter py-section-lg"
     >
-      <div className="mx-auto grid max-w-6xl gap-14 lg:grid-cols-2 lg:items-center">
-        <Reveal>
+      <div className="mx-auto max-w-6xl">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <span className="text-caption uppercase tracking-[0.25em] text-signal">Our Philosophy</span>
           <h2 id="philosophy-heading" className="mt-4 font-display text-h1 text-foreground">
             {philosophy.headline}
           </h2>
-          <p className="mt-6 max-w-lg text-body leading-relaxed text-muted-foreground">{philosophy.body}</p>
+          <p className="mt-5 text-body leading-relaxed text-muted-foreground">{philosophy.body}</p>
         </Reveal>
 
-        {/* Interactive service grid — tap/click any card to reveal what it does.
-            One consistent interaction at every screen size, no hover dependency. */}
-        <Reveal delay={0.15}>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2" role="list" aria-label="Our services">
-            {services.map((service, i) => {
-              const isOpen = openSlug === service.slug;
+        <Reveal delay={0.1} className="mt-12">
+          <div role="tablist" aria-label="Explore our services" className="flex flex-wrap justify-center gap-2">
+            {services.map((service) => {
+              const Icon = TAB_ICONS[service.slug];
+              const isActive = service.slug === activeSlug;
               return (
-                <div
+                <button
                   key={service.slug}
-                  role="listitem"
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActiveSlug(service.slug)}
+                  style={{ "--accent-element": `var(--el-${service.element})` } as CSSProperties}
                   className={cn(
-                    "overflow-hidden rounded-lg border bg-surface transition-colors duration-300",
-                    isOpen ? "border-signal/50" : "border-border"
+                    "flex shrink-0 items-center gap-2 rounded-full border px-4 py-2.5 text-body-sm font-medium transition-colors duration-300",
+                    isActive
+                      ? "border-accent-element/40 bg-accent-element/15 text-foreground"
+                      : "border-border text-muted-foreground hover:border-accent-element/30 hover:text-foreground"
                   )}
                 >
-                  <button
-                    type="button"
-                    aria-expanded={isOpen}
-                    onClick={() => setOpenSlug(isOpen ? null : service.slug)}
-                    className="flex w-full items-center gap-4 px-4 py-4 text-left"
-                  >
-                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border text-caption text-muted-foreground">
-                      {service.index}
-                    </span>
-                    <span className="flex-1 text-body font-medium text-foreground">{service.name}</span>
-                    <Plus
-                      aria-hidden="true"
-                      className={cn(
-                        "h-4 w-4 shrink-0 text-signal transition-transform duration-300",
-                        isOpen && "rotate-45"
-                      )}
-                    />
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-4 pb-4 pl-[3.25rem]">
-                          <p className="text-body-sm text-muted-foreground">{service.tagline}</p>
-                          <Link
-                            to={`/solutions/${service.slug}`}
-                            className="mt-2 inline-flex items-center gap-1 text-caption text-signal"
-                          >
-                            View service
-                            <ArrowRight className="h-3 w-3" strokeWidth={2} />
-                          </Link>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                  <Icon className={cn("h-4 w-4", isActive ? "text-accent-element" : "text-muted-foreground")} strokeWidth={2} />
+                  {service.name}
+                </button>
               );
             })}
           </div>
         </Reveal>
+
+        <div className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+          <div
+            key={`text-${active.slug}`}
+            className="animate-fade-rise"
+            style={{ "--accent-element": `var(--el-${active.element})` } as CSSProperties}
+          >
+            <span className="text-caption font-medium text-accent-element">{active.tagline}</span>
+            <h3 className="mt-3 font-display text-h2 text-foreground">{active.hero.headline}</h3>
+            <p className="mt-5 max-w-md text-body-sm leading-relaxed text-muted-foreground">{active.body}</p>
+            <Link
+              to={`/solutions/${active.slug}`}
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-body-sm font-medium text-background transition-transform duration-300 hover:scale-[1.03]"
+            >
+              Explore {active.name}
+              <ArrowRight className="h-4 w-4" strokeWidth={2} />
+            </Link>
+          </div>
+
+          <div key={`dashboard-${active.slug}`} className="animate-fade-rise">
+            <DashboardMockup service={active} />
+          </div>
+        </div>
       </div>
     </section>
   );
