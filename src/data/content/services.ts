@@ -62,13 +62,13 @@ export const services: ServiceConfig[] = [
     slug: "website-development",
     index: "01",
     name: "Website Development",
-    tagline: "Sites built to convert, not just exist.",
+    tagline: "Sites built to convert, engineered to scale.",
     body: "Marketing sites, e-commerce, and web platforms engineered for speed, SEO, and motion-driven storytelling.",
     image: "https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     element: "water",
     hero: {
       eyebrow: "Website Development",
-      headline: "Build a Website That Grows Your Business. Not Your Maintenance Costs.",
+      headline: "Build a Website That Grows Your Business.",
       subhead:
         "Your website should be your best salesperson, working 24 hours a day to turn attention into revenue.",
       primaryCta: "Book Consultation",
@@ -172,12 +172,12 @@ export const services: ServiceConfig[] = [
       eyebrow: "App Development",
       headline: "Build an App Customers Actually Return To.",
       subhead:
-        "The market doesn't need more apps. It needs experiences worth opening twice.",
+        "What the market needs is experiences worth opening twice.",
       primaryCta: "Book Consultation",
       secondaryCta: "View Projects",
     },
     problem: {
-      headline: "Businesses don't have an app problem.",
+      headline: "The real problem is retention.",
       body: "They have a retention problem. Most apps are downloaded once and never opened again, because they were built to launch, not to be used.",
     },
     costOfInaction: {
@@ -265,12 +265,12 @@ export const services: ServiceConfig[] = [
       eyebrow: "ERP Solutions",
       headline: "One Operating System For Your Entire Business.",
       subhead:
-        "You don't have an ERP problem. You have an operational complexity problem, and disconnected tools made it worse.",
+        "You have an operational complexity problem, and disconnected tools made it worse.",
       primaryCta: "Book Consultation",
       secondaryCta: "View Projects",
     },
     problem: {
-      headline: "You don't need customer software.",
+      headline: "The real problem is disconnected systems.",
       body: "You need one place where inventory, finance, and operations finally agree with each other. Every disconnected spreadsheet is a decision made on outdated information.",
     },
     costOfInaction: {
@@ -358,12 +358,12 @@ export const services: ServiceConfig[] = [
       eyebrow: "CRM Solutions",
       headline: "Every Customer. Every Conversation. One Intelligent Relationship.",
       subhead:
-        "You don't need customer software. You need stronger customer relationships, systemised, not left to memory.",
+        "You need stronger customer relationships, systemised instead of left to memory.",
       primaryCta: "Book Consultation",
       secondaryCta: "View Projects",
     },
     problem: {
-      headline: "Leads aren't disappearing. They're falling through cracks in your process.",
+      headline: "Leads are falling through cracks in your process.",
       body: "Most CRM failures aren't a software problem, they're a workflow mismatch. A CRM your team fights against will always lose to the spreadsheet they trust more.",
     },
     costOfInaction: {
@@ -443,7 +443,7 @@ export const services: ServiceConfig[] = [
     slug: "digital-marketing",
     index: "05",
     name: "Digital Marketing",
-    tagline: "Growth, measured in pipeline, not impressions.",
+    tagline: "Growth, measured in pipeline and revenue.",
     body: "Performance marketing, SEO, and paid media run by a team that ships the website too, so strategy never disconnects.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80&fm=jpg&fit=crop&auto=format",
     element: "fire",
@@ -451,12 +451,12 @@ export const services: ServiceConfig[] = [
       eyebrow: "Digital Marketing",
       headline: "Growth Engineered For Measurable Outcomes.",
       subhead:
-        "Marketing isn't a campaign. It's a growth engine, built, measured, and improved like any other system.",
+        "Marketing is a growth engine, built, measured, and improved like any other system.",
       primaryCta: "Book Consultation",
       secondaryCta: "View Projects",
     },
     problem: {
-      headline: "Impressions don't pay invoices.",
+      headline: "What pays invoices is pipeline.",
       body: "Most marketing engagements optimise for metrics that look good in a report and mean nothing to your revenue. We build for pipeline, not vanity metrics.",
     },
     costOfInaction: {
@@ -549,7 +549,7 @@ export const services: ServiceConfig[] = [
       secondaryCta: "View Projects",
     },
     problem: {
-      headline: "Most brands don't have a content problem.",
+      headline: "The real problem is consistency.",
       body: "They have a consistency problem. Sporadic posting from an overstretched internal team reads as absence, and absence erodes trust faster than imperfect content ever could.",
     },
     costOfInaction: {

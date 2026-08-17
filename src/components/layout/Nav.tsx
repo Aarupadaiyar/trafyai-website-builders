@@ -49,7 +49,7 @@ export function Nav() {
             initial={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: reducedMotion ? 0 : 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="text-2xl tracking-tighter text-foreground font-brand uppercase"
+            className="text-2xl tracking-tighter text-foreground font-brand font-semibold uppercase"
           >
             {brand.name}
           </motion.span>

@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="relative bg-background border-t border-border">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20 grid grid-cols-2 md:grid-cols-4 gap-10">
         <div className="col-span-2 md:col-span-2">
-          <span className="text-2xl tracking-tighter font-brand text-foreground uppercase">{brand.name}</span>
+          <span className="text-2xl tracking-tighter font-brand font-semibold text-foreground uppercase">{brand.name}</span>
           <p className="mt-4 max-w-xs text-base text-muted-foreground leading-relaxed">{brand.statement}</p>
         </div>
 

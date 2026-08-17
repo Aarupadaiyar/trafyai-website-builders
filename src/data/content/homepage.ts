@@ -1,6 +1,6 @@
 export const hero = {
   eyebrow: "Business Transformation Studio",
-  headline: "We Build Momentum, Not Just Software.",
+  headline: "We Build Measurable Momentum.",
   emphasis: "Momentum",
   subhead:
     "One team engineering the websites, apps, ERP, and CRM systems ambitious companies actually run on. Built fast. Built right. Built to scale.",
@@ -15,8 +15,8 @@ export const hero = {
 };
 
 export const realityCheck = {
-  headline: "Most businesses don't need more software.",
-  secondHeadline: "They need better systems.",
+  headline: "Every business already runs on software.",
+  secondHeadline: "The real answer is better systems.",
   body: "Businesses spend thousands on software. Yet their teams still copy data between spreadsheets. Still answer repetitive emails. Still lose leads. Still waste time. Technology isn't the problem. Disconnected thinking is.",
   cta: "See How We Solve This",
 };
@@ -33,7 +33,7 @@ export const challenges: Challenge[] = [
 ];
 
 export const whyTechFails = {
-  quote: "Technology doesn't fail. Poor implementation does.",
+  quote: "Great implementation is what makes technology work.",
   genericAgency: ["Build website", "Invoice", "Leave"],
   trafy: ["Research", "Strategy", "Development", "Automation", "Support", "Growth"],
 };
